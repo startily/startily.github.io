@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<!-- 用这个写，录入信息后，存在本地浏览器中不消失 -->
+	
+	<head>
+		<meta charset="utf-8">
+		<title>hometown9</title>
+		<link rel="stylesheet" href="css/pinglun.css">
+	</head>
+	<body>
+		<div id="box">
+			
+			<!-- 应该是form表单就可以实现enter即回车的操作 -->
+			
+			  <form class="info" autocomplete="off">
+				<!-- 上传照片：<input type="file" class="file" name="file"> -->
+			    姓名：<input type="text" class="uname" name="uname" /><br />
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				评论：<input type="text" class="age" name="age" />
+			    
+			    <button class="add">录入</button>
+			  </form>
+			
+			  <h1>评论区</h1>
+			  <table>
+			    <thead>
+			      <tr>
+					<!-- <th>照片路径</th> -->
+			        <th>序号</th>
+			        <th>姓名</th>
+			        <th>评论</th>
+			        <th>操作</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			    </tbody>
+			  </table>
+		</div>
+		<!-- 显示时间 -->
+		<div id="timeShow" style="background-color: ;color:red;position: absolute;top: 0;right: 0;"></div>
+		
+		<!-- 返回之前的网页 -->
+		<div style="position: absolute;bottom: 20px;left: 20px;cursor: pointer;"><a href="hometown8.html"><==</a></div>
+	</body>
+	<script>	
+	      //1：读取本地存储数据
+	      //2.如果本地存储有数据，则返回 JSON.parse() 之后的对象,如果本地存储没有数据，则声明一个空的数组
+	      const arr = localStorage.getItem('student-data') ? JSON.parse(localStorage.getItem('student-data')) : []
+	      // console.log(arr)
+	      // 获取 tbody 之后用来添加子类标签
+	      const tbody = document.querySelector('tbody')
+	      // 3. 渲染模块函数
+	      function render(){
+	        //遍历数组arr，将数组里每一个对象都生成对应的tr标签添加给tbody
+	        //map方法 返回的是个经过处理的数组
+	        const trArr = arr.map(function(item,i){
+	          //item是具体的值(这里是每一个对象) i是数组下标
+	          return `
+	          <tr>
+	          <td>${item.stuId}</td>
+	          <td>${item.uname}</td>
+	          <td>${item.age}</td>
+			  
+	          
+	          <td>
+	            <a href="javascript:" data-id = ${i}>删除</a>
+	          </td>
+	        </tr> 
+	          `
+	        })
+	        //trArr是个数组，默认元素之间以逗号分隔，如果直接给tbody添加，行与行之间会出现逗号，所以要使用join方法将数组转换为字符串
+	        tbody.innerHTML = trArr.join('')
+	      }
+	      //先渲染一次，显示网页的默认数据
+	      render()
+	      // 4. 录入模块
+	      const info = document.querySelector('.info')
+	      //获取form表单里所有带name属性的元素
+	      const items = info.querySelectorAll('[name]')
+	      info.addEventListener('submit',function(e){
+	        //阻止表单的默认提交功能,要用事件
+	        e.preventDefault()
+	        //创建一个对象，用来装输入的参数
+	        const obj = {}
+	        //假如有两条数据 2
+	        obj.stuId = arr.length ? arr[arr.length - 1].stuId + 1 : 1
+	        //非空判断
+	        for(let i = 0; i < items.length; i++){
+	          //items : 数组里面五个要输入内容的表单 共同属性：name
+	          //item[i] : 每一个表单， 例如：item[i] : 姓名：<input type="text" class="uname" name="uname" />
+	          //item[i].name : 每一个表单name属性里的值， 例如item[i].name = uname
+	          const item = items[i]
+	          if(items[i].value === ''){
+	            return alert('输入内容不能为空')
+	          }
+	          //通过非空判断就需要将输入的内容与对象的值一一对应赋给对象
+	          //[]里面带引号是值，不带引号是变量 obj[对象名] = 对象值 相当于obj['uname'] = name.value  obj['uname'] = '欧阳霸天' 以此类推
+	          obj[item.name] = item.value
+	        }
+	        //将遍历好的对象追加给数组
+	        arr.push(obj)
+	        //把数组arr存储到本地存储里面,arr是个数组对象
+	        localStorage.setItem('student-data',JSON.stringify(arr))
+	        //渲染页面
+	        render()
+	        // 重置表单
+	        this.reset()
+	      })
+	      //5.删除模块
+	      tbody.addEventListener('click',function(e){
+	        if(e.target.tagName === 'A'){
+	          arr.splice(e.target.dataset.id, 1)
+	          //写入本地存储(相当于又创建了一个student-data把原来的覆盖了)
+	          localStorage.setItem('student-data',JSON.stringify(arr))
+	          //重新渲染
+	          render()
+	        }
+	      })
+	  </script>
+	  
+	  <!-- 时间函数 -->
+	  <script type="text/javascript">
+	  		  var t = null;
+	  		  function time(){
+	  		   dt = new Date();
+	  		   var y=dt.getFullYear();
+	  		   var h=dt.getHours();
+	  		   var m=dt.getMinutes();
+	  		   var s=dt.getSeconds();
+	  		   document.getElementById("timeShow").innerHTML="当前时间："+y+"年"+h+"时"+m+"分"+s+"秒";
+	  		   t = setTimeout(time,1000);    
+	  		  } 
+	  		  window.onload=function(){time()}
+	  		</script>
+	</body>
+
+</html>

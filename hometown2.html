@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>hometown2</title>
+		<style>
+			div{
+				width: 50%;
+				height: 630px;
+				margin: 0 auto;
+				background-color: wheat;
+				overflow: hidden;
+			}
+			table{
+				border: 1px solid transparent;
+			}
+			.t1{
+				width: 155px;
+			}
+			.box2{
+				margin-top: 250px;
+			}
+			body{
+				background-image: url(https://img.zcool.cn/community/01330c582934d5a84a0d304f1018b5.gif);
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div class="box2">		
+				
+				<table>
+					<!-- <form action="hometown3.html" method="get" target="_blank"> -->
+					<caption>来登个记</caption>
+						<tr>
+							<td>小子你叫啥?</td>
+							<td class="t1">
+								<input type="text" placeholder="比如:小明,小仨啥的" autofocus list="mylist" required id="username"/>	
+								<datalist id="mylist">
+									<option value="万金"></option>
+									<option value="万仁"></option>
+									<option value="万志龙"></option>
+									<option value="万前康"></option>
+									<option value="万国峰"></option>
+									<option value="万鹏羽"></option>
+								</datalist><!--readonly可读，点击高亮，却不可编辑-->
+							</td>
+						</tr>
+						<tr>
+							<td>来个密码吧！</td>
+							<!-- <td><input type="password" placeholder="非诚勿扰" disabled/></td> -->
+							<td><input type="password" placeholder="非诚勿扰" id="passwd"/></td>
+						</tr>
+						<tr>
+							<td>喜欢吃什么？</td>
+							<td><input type="checkbox" id="choice" disabled/ >麻辣小火锅<!--disable会禁用,但可读--><input type="checkbox" id="choice"/ >大刀肉 <input type="checkbox" id="choice"/ >旺旺饼干  <input type="checkbox" id="choice"/ >麻辣豆腐丝</td>
+						</tr>
+						<tr>
+							<td>啥性别？</td>
+							<td><input type="radio" name="dd" id="cho" disabled/><label for="cho">大叔<!--readonly可读，点击高亮，却不可编辑--></label> <input type="radio" name="dd" id="cho1" checked/><label for="cho1">大妈</label> <input type="radio" name="dd" id="cho2" readonly/><label for="cho2">中性</label></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="走你!" onclick="login()"/></td>
+							<td><input type="reset" value="重来一次吧!" onclick="doClear()"/></td>
+						</tr>
+					</form>
+				</table>
+				
+			</div>
+		</div>
+		<script type="text/javascript">
+			let accountAll = [{ // 存储账户json数据的数组
+					username: '万仁',
+					passwd: '123456'
+				},
+				{
+					username: '万金',
+					passwd: '789012'
+				},
+				{
+					username: '万前康',
+					passwd: '345678'
+				},
+				{
+					username: '万鹏羽',
+					passwd: '901234'
+				},
+				{
+					username: '万志龙',
+					passwd: '567890'
+				},
+				{
+					username: '万国峰',
+					passwd: '123456'
+				},
+				{
+					username: '万梁',
+					passwd: '789012'
+				},
+				{
+					username: '万前康',
+					passwd: '345678'
+				},
+				{
+					username: '万俊宏',
+					passwd: '901234'
+				},
+				{
+					username: '万宏玲',
+					passwd: '567890'
+				},
+				{
+					username: '万雅馨',
+					passwd: '123456'
+				},
+				{
+					username: '谢豪',
+					passwd: '789012'
+				}
+			]
+			function login() { //登陆判断
+				let username = document.getElementById('username').value;
+				let passwd = document.getElementById('passwd').value;
+				let account = accountAll.filter(function(e) {
+					return e.username == username
+				})[0]; // 筛选账号返回数组，不存在则返回空数组
+				if (!account) {
+					alert('账户不存在');
+				} else {
+					if (account.username == username && account.passwd == passwd) {
+						alert('登陆成功！'+'\n'+'欢迎'+'\n'+username+'!!!!'+'\n'+'进入我们的世界！');
+						window.location.href="hometown3.html"
+					} else {
+						alert('密码错误');
+					}
+				}
+			}
+			function doClear() { //获取页面所有的input框，是text和password框，内容=空串
+				let inputs = document.getElementsByTagName("input");
+				for (let i = 0; i < inputs.length; i++) {
+					if (inputs[i].type == 'text' || inputs[i].type == 'password') {
+						inputs[i].value = '';
+					}
+				}
+			}
+			//给清除按钮增加onclick事件
+			let reset = document.getElementById('reset');
+			reset.addEventListener('click', function() {
+				doClear();
+			});
+		</script>
+	</body>
+</html>

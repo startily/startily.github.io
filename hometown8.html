@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>hometown8</title>
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#container{
+				/* width: 80%; */
+				/* height: 660px; */
+				margin: 0 auto;
+				/* background-color: red; */
+			}
+			#top{
+				width: 100%;
+				height: 460px;
+				background-color: blueviolet;
+				/* background-image: url(images/93D59D289E187257432D719880B0E024.jpg); */
+				background-repeat: no-repeat;
+				background-attachment: scroll;
+				background-size: cover;
+			}
+			.box2{
+				width: 100%;
+				min-height: 70px;
+				background-color: brown;
+			}
+			.box3{
+				width: 100%;
+				height: 370px;
+				background-color: blueviolet;
+			}
+			.box4{
+				width: 50%;
+				height: 370px;
+				background-color: yellow;
+				float: left;
+			}
+			.box5{
+				width: 50%;
+				height: 370px;
+				background-color: orangered;
+				float: left;
+			}
+			#container .box1 img{
+				background-size: cover;
+				background-attachment: scroll;
+			}
+			#container .box2 table{
+				border: 1px solid transparent;
+				width: 100%;
+				height: 100%;
+				margin-left: 0.3%;
+				text-align: center;
+			}
+			#container .box2 table tr td a{
+				font-family: 楷体;
+				text-decoration: none;
+				font-size: 22px;
+			}
+			#container .box3 .box4 p{
+				text-indent: 2px;
+				
+			}
+			#container .box3 .box4{
+				overflow-y: scroll;
+				
+			}
+			#container .box3 .box5 .box6{
+				width: 100%;
+				height: 185px;
+				background-color: blue;
+			}
+			#container .box3 .box5 .box6 .box7{
+				width: 25%;
+				height: 130px;
+				background-color: wheat;
+				float: left;
+				margin-top: 27px;
+				margin-left: 30px;
+				background-image: url();
+				box-shadow: 10px 10px 1px cyan;
+			}
+			#container .box3 .box5 .box6 .box7 .img1{   /* 万金 */
+				width: 100%;
+				height: 100px;
+				background-color: red;
+				background-image: url(images/me4.jpg);
+				background-size: cover;
+			}
+			#container .box3 .box5 .box6 .box7 .img2{   /* 万志龙 */
+				width: 100%;
+				height: 100px;
+				background-color: red;
+				background-image: url(images/万志龙2.jpg);
+				background-size: cover;
+				background-position: bottom;
+			}
+			#container .box3 .box5 .box6 .box7 .img3{   /* 万前康 */
+				width: 100%;
+				height: 100px;
+				background-color: red;
+				background-image: url(images/万前康.png);
+				background-size: cover;
+			}
+			#container .box3 .box5 .muttom1{
+				width: 100%;
+				height: 185px;
+				background-color: orangered;
+			}
+			#container .box3 .box5 .muttom1 .muttom2{
+				width: 25%;
+				height: 130px;
+				background-color: orangered;
+				float: left;
+				margin-top: 27px;
+				margin-left: 30px;
+				
+			}
+			#container .box3 .box5 .muttom1 .muttom2 .img4{
+				width: 100%;
+				height: 130px;
+				background-color: red;
+				border-radius: 100px;
+				background-image: url(images/万国峰2.jpg);
+				background-size: cover;
+			}
+			#container .box3 .box5 .muttom1 .muttom3{
+				width: 25%;
+				height: 130px;
+				background-color: yellowgreen;
+				float: left;
+				margin-top: 27px;
+				margin-left: 30px;
+			}
+			#container .box3 .box5 .muttom1 .muttom3 .img5{
+				width: 100%;
+				height: 130px;
+				background-color: red;
+				background-image: url(images/仁毛4.jpg);
+				background-size: cover;
+			}
+			#container .box3 .box5 .muttom1 .muttom4{
+				width: 25%;
+				height: 130px;
+				background-color: orangered;
+				float: left;
+				margin-top: 27px;
+				margin-left: 30px;
+				
+				}
+			#container .box3 .box5 .muttom1 .muttom4 .img6{
+				width: 100%;
+				height: 130px;
+				background-color: red;
+				border-radius: 100px;
+				background-image: url(images/万鹏羽2.png);
+				background-size: cover;
+				}
+				td:hover{
+					background-color: aqua;
+					transition: all 1s;
+				}
+				.oo{
+					width: 0;
+					height: 0;
+					display: inline-block;
+					border: 5px solid transparent;
+					border-bottom: 5px solid yellow;
+					position: relative;
+					top: -2.5px;
+				}
+				.item:hover .oo{
+					border: 5px solid transparent;
+					border-top: 5px solid yellow;
+					position: relative;
+					top: 2.5px;
+					transition: all 2s;
+				}
+				.name{
+					font-size: 100px;
+					font-family: 楷体;
+					text-shadow: 10px 10px 1px red;
+					/* text-shadow是文本阴影的意思
+					10px:水平方向位移
+					10px:垂直方向位移
+					1px:模糊程度--数值越大,越模糊
+					red:颜色的意思 
+					允许负值！！！*/
+				}
+				ul{
+					list-style: none;
+				}
+				.lit .item{
+					float: left;
+					height: 70px;
+					border: 1px solid blue;
+					line-height: 70px;
+					text-align: center;
+					/* width: 160.2px; */
+					width: 100%;
+					transition: all 1s;
+					
+				}
+				.lit a{
+					text-decoration: none;
+				}
+				.lit .item:hover{
+					background-color: aqua;
+					transition: all 1s;
+					
+				}
+				.item ul{
+					position: absolute;
+					background-color: deeppink;
+					/* width: 160.2px; */
+					margin-left: 50%;
+					transition: all 1s;
+					
+				}
+				
+				.item li{
+					border: 1px solid brown;
+					display: none;
+					transition: all 1s;
+				}
+				.item:hover ul{
+					transform: translateX(50px);
+				}
+				.item:hover li{
+					width: 78px;
+					float: left;
+					border: 1px solid brown;
+					display: block;
+					transition: all 1s;
+					
+				}
+				.item li:hover{
+					color: blue;
+					background-color: wheat;
+					transition: all 1s;
+				}
+				::-webkit-scrollbar{
+					display: none;						/* #有滚动条,但是隐藏样式,依旧可滚动,但是要好看了一点 */
+				}
+				
+				.mySwiper{
+					width: 1000px;
+					height: 500px;
+					/* border: 1px solid black; */
+				}
+				.mySwiper img{
+					width: 100%;
+					height: 100%;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="mySwiper">
+			    <div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="images/hezhao.jpg" alt=""></div>
+			        <div class="swiper-slide"><img src="images/he.jpg" alt=""></div>
+			        <div class="swiper-slide"><img src="images/pao.jpg" alt=""></div>
+			        <div class="swiper-slide"><img src="images/sun.jpg" alt=""></div>
+					
+					
+			    </div>
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			    
+			    <!-- 如果需要导航按钮 -->
+			    <!-- <div class="swiper-button-prev"></div>
+			    <div class="swiper-button-next"></div> -->
+			    
+			    <!-- 如果需要滚动条 -->
+			    <div class="swiper-scrollbar"></div>
+			</div>
+			
+			<audio src="audio/云烟成雨.mp3" controls autoplay loop style="top: 0;position: absolute;"></audio>
+			
+			<div class="box2">
+			<ul class="lit">
+				<li class="item"><a href="#" title="万金">万金<span class="oo"></span></a>
+					<ul>
+						<li>性格</li>
+						<li>兴趣</li>
+						<li>故事</li>
+						<li>美食</li>
+					</ul>
+				</li>
+				<li class="item"><a href="#" title="万志龙">万志龙<span class="oo"></span></a>
+					<ul>
+						<li>性格</li>
+						<li>兴趣</li>
+						<li>故事</li>
+						<li>美食</li>
+					</ul>
+				</li>
+				<li class="item"><a href="#" title="万前康">万前康<span class="oo"></span></a>
+					<ul>
+						<li>性格</li>
+						<li>兴趣</li>
+						<li>故事</li>
+						<li>美食</li>
+					</ul>
+				</li>
+				<li class="item"><a href="#" title="万国峰">万国峰<span class="oo"></span></a>
+					<ul>
+						<li>性格</li>
+						<li>兴趣</li>
+						<li>故事</li>
+						<li>美食</li>
+					</ul>
+				</li>
+				<li class="item"><a href="#" title="万鹏羽">万鹏羽<span class="oo"></span></a>
+					<ul>
+						<li>性格</li>
+						<li>兴趣</li>
+						<li>故事</li>
+						<li>美食</li>
+					</ul>
+				</li>
+				<li class="item"><a href="#" title="万仁">万仁<span class="oo"></span></a>
+					<ul>
+						<li>性格</li>
+						<li>兴趣</li>
+						<li>故事</li>
+						<li>美食</li>
+					</ul>
+				</li>
+			</ul>
+			</div>
+			<div class="box3">
+				<div class="box4">
+					<h1 style="text-align: center;">个人介绍</h1>
+					<p style="font-family: 宋体;">万志龙:<br/>我很普通 长相很普通 成绩很普通 做事很普通 圈子  很普通 谢谢你们和我这样普通的人交朋友.<br/>希望你们能把每天做的事情，都分享给我，不管是有趣的，还是无趣的，只要是关于你们的，我都想知道。<br>我还是喜欢老朋友，三观合得来，懂我的脾气，开玩笑有度，不戳对方痛处，永远站在我这边，不见面的日子大家都辛苦了。</p><br/>
+					<p style="font-family: 宋体;">万前康:<br/>第一原则：<br/>先把亲人安顿好 <br/>其次就是友谊朋友</p><br/>
+					<p style="font-family: 宋体;">万国锋：<br/>起初我认为我满身缺点，直到我和你们相遇我才认识到我也有优点</p><br/>
+					<p style="font-family: 宋体;">万鹏羽：<br/>怎么说呢，其实吧，告诉你们一个秘密：<br/><span style="font-family:黑体;display:inline-block;">我的偶像是<span class="name">万金</span></span></p><br/>
+					<p style="font-family: 华文宋体;">万仁：一切随心而为<br/></p><br/>
+					<p style="font-family: 隶书;">万金：<br/>很荣幸，在这个孤独的路上，有这么几个好朋友</p>
+				</div>
+				<div class="box5">
+					<div class="box6">
+						<div class="box7">
+							<div class="img1">
+								
+							</div>
+							<p style="text-align: center;">万金</p>
+						</div>
+						<div class="box7">
+							<div class="img2">
+								
+							</div>
+							<p style="text-align: center;">万志龙</p>
+						</div>
+						<div class="box7">
+							<div class="img3">
+								 
+							</div>
+							<p style="text-align: center;">万前康</p>
+						</div>
+					</div>
+					<div class="muttom1">
+						<div class="muttom2">
+							<div class="img4">							 
+							</div>
+							<p style="text-align: center;">万国峰</p>
+						</div>
+						<div class="muttom3">
+							<div class="img5">
+								
+							</div>
+							<p style="text-align: center;">万仁</p>
+						</div>
+						<div class="muttom4">
+							<div class="img6">
+								<img src="" alt="">
+							</div>
+							<p style="text-align: center;">万鹏羽</p>
+						</div>
+					</div>
+						
+				</div>
+			</div>
+			
+		</div>
+		<div style="height: 300px;background-color: #349;margin-top: 200px;text-align: center;line-height: 150px;cursor: pointer" onclick="tuichu()">评论中心==></div>	
+		</div>
+		<!-- 显示时间 -->
+		<!-- <div id="timeShow" style="background-color: ;color:red;position: absolute;top: 0;right: 0;"></div> -->
+	</body>
+	<script>
+		// 退出作用
+		function tuichu(){
+			window.open('hometown9.html')
+		}
+	</script>
+	
+	<!-- // 引入swiper_js文件 -->
+	<script src="js/swiper.min.js"></script>
+
+	<!-- 设置轮播 -->
+	  <script>
+		  var swiper = new Swiper(".mySwiper", {
+				loop:true,
+		        effect: "coverflow",
+		        grabCursor: true,
+				// loop:true;
+		        centeredSlides: true,
+		        slidesPerView: "auto",
+		        coverflowEffect: {
+		          rotate: 50,
+		          stretch: 0,
+		          depth: 100,
+		          modifier: 1,
+		          slideShadows: true,
+		        },
+		        pagination: {
+		          el: ".swiper-pagination",
+		        },
+		      });
+	  </script>
+	  
+	  <!-- <script type="text/javascript">
+		  var t = null;
+		  function time(){
+		   dt = new Date();
+		   var y=dt.getFullYear();
+		   var h=dt.getHours();
+		   var m=dt.getMinutes();
+		   var s=dt.getSeconds();
+		   document.getElementById("timeShow").innerHTML="当前时间："+y+"年"+h+"时"+m+"分"+s+"秒";
+		   t = setTimeout(time,1000);    
+		  } 
+		  window.onload=function(){time()}
+		</script> -->
+</html>
